@@ -5,62 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Skincare with Maria</title>
     <style>
-        /* Force the browser to remove ALL default spacing */
+        /* Zero out all default borders/spacing */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body, html { 
-            height: 100%; 
-            width: 100%; 
+            height: 100vh; width: 100vw; 
             overflow: hidden; 
-            background-color: #fceeee; 
+            background-color: #fceeee; /* CHANGE THIS TO YOUR SITE COLOR */
         }
 
-        /* The Centered Banner */
+        /* THE BANNER - Centered and Bold */
         .custom-header {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120px; 
-            background-color: #fceeee; 
-            z-index: 10000; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #f0f0f0;
+            top: 0; left: 0; width: 100%;
+            height: 120px; /* Laptop Height */
+            background-color: #fceeee; /* CHANGE THIS TO YOUR SITE COLOR */
+            z-index: 99999;
+            display: flex; align-items: center; justify-content: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .brand-name {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 20px;
-            letter-spacing: 4px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 32px; /* Large Laptop Text */
+            letter-spacing: 8px;
             text-transform: uppercase;
             color: #000;
+            text-align: center;
         }
 
-        /* The Window - This forces it to fill the width */
-        .page-container {
-            position: absolute;
-            top: 80px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            overflow: hidden;
-        }
-
+        /* THE WIX WINDOW - Fills the rest of the screen */
         iframe {
-            width: 100%;
-            height: 120%;
+            position: absolute;
+            top: 120px; /* Must match Laptop Height */
+            left: 0; width: 100%;
+            height: calc(100% - 120px);
             border: none;
             display: block;
         }
 
-        /* Mobile specific heights */
-        @media only screen and (max-width: 600px) {
-            .custom-header { height: 60px; }
-            .page-container { top: 60px; }
-            .brand-name { font-size: 16px; letter-spacing: 2px; }
+        /* MOBILE OVERRIDE - Auto-adjusts for phones */
+        @media only screen and (max-width: 768px) {
+            .custom-header { height: 80px; } /* Perfect Mobile Height */
+            .brand-name { font-size: 18px; letter-spacing: 4px; }
+            iframe { 
+                top: 80px; 
+                height: calc(100% - 80px); 
+            }
         }
     </style>
 </head>
@@ -70,9 +61,7 @@
         <div class="brand-name">Skincare with Maria</div>
     </div>
 
-    <div class="page-container">
-        <iframe src="https://husssye08.wixsite.com/skincare-with-maria"></iframe>
-    </div>
+    <iframe src="https://husssye08.wixsite.com/skincare-with-maria"></iframe>
 
 </body>
 </html>
