@@ -2,54 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skincare with Maria </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Skincare with Maria</title>
     <style>
-        /* Reset and layout */
+        /* Base Settings */
         body, html { 
             margin: 0; 
             padding: 0; 
-            height: 100%; 
-            width: 100%; 
+            height: 100vh; 
+            width: 100vw; 
             overflow: hidden; 
-            background-color: #ffffff;
+            background: #ffffff; 
         }
-        
-        /* The Header Bar (Covers the Wix Ad) */
+
+        /* The Centered Banner */
         .custom-header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 120px; /* Adjust height if the Wix ad is taller */
+            height: 90px; 
             background-color: #ffffff; 
-            z-index: 99999; 
+            z-index: 999999 !important; 
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #eeeeee; /* Subtle professional line */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .brand-name {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 32px;
-            letter-spacing: 2px;
+            font-size: 22px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: #333333;
-            font-weight: 400;
+            color: #000;
+            text-align: center;
         }
 
-        /* The Wix Window */
+        /* The Wix Site Window */
         iframe {
             position: absolute;
-            top: 0;
+            top: 90px; 
             left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 90px); 
             border: none;
-            padding-top: 60px; /* This pushes your ACTUAL Wix content down so it's not hidden */
-            box-sizing: border-box;
+            display: block;
+        }
+
+        /* Mobile Adjustments to remove borders and shrink header */
+        @media only screen and (max-width: 600px) {
+            .custom-header { height: 65px; }
+            .brand-name { font-size: 16px; letter-spacing: 2px; }
+            iframe { 
+                top: 65px; 
+                height: calc(100% - 65px);
+                width: 100%;
+            }
         }
     </style>
 </head>
