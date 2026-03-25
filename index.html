@@ -5,59 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Skincare with Maria</title>
     <style>
-        /* Base Settings */
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100vh; 
-            width: 100vw; 
-            overflow: hidden; 
-            background: #ffffff; 
-        }
+        body, html { margin: 0; padding: 0; height: 100vh; width: 100vw; overflow: hidden; background: #ffffff; }
 
-        /* The Centered Banner */
         .custom-header {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 90px; 
-            background-color: #ffffff; 
-            z-index: 999999 !important; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            top: 0; left: 0; width: 100%; height: 80px;
+            background-color: #ffffff; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
             border-bottom: 1px solid #f0f0f0;
         }
 
         .brand-name {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 22px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #000;
-            text-align: center;
+            font-family: sans-serif; font-size: 20px;
+            letter-spacing: 3px; text-transform: uppercase; color: #000;
         }
 
-        /* The Wix Site Window */
-        iframe {
+        /* This is the magic part for the "Shrunken" problem */
+        .frame-container {
             position: absolute;
-            top: 90px; 
+            top: 80px; 
             left: 0;
             width: 100%;
-            height: calc(100% - 90px); 
-            border: none;
-            display: block;
+            height: calc(100% - 80px);
+            overflow: hidden;
         }
 
-        /* Mobile Adjustments to remove borders and shrink header */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* MOBILE FIX: If the site looks too small, we force it to 100% width */
         @media only screen and (max-width: 600px) {
-            .custom-header { height: 65px; }
-            .brand-name { font-size: 16px; letter-spacing: 2px; }
-            iframe { 
-                top: 65px; 
-                height: calc(100% - 65px);
-                width: 100%;
+            .custom-header { height: 60px; }
+            .frame-container { top: 60px; height: calc(100% - 60px); }
+            iframe {
+                width: 100vw;
+                height: 100%;
             }
         }
     </style>
@@ -68,7 +53,9 @@
         <div class="brand-name">Skincare with Maria</div>
     </div>
 
-    <iframe src="https://husssye08.wixsite.com/skincare-with-maria"></iframe>
+    <div class="frame-container">
+        <iframe src="https://yourusername.wixsite.com/yoursite"></iframe>
+    </div>
 
 </body>
 </html>
